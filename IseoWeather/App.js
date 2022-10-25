@@ -1,18 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { View,Text, StyleSheet } from 'react-native';
+import { View,Text, Dimensions, StyleSheet, ScrollView } from 'react-native';
 
+const { width:SCREEN_WIDTH } = Dimensions.get('window');
+
+console.log(SCREEN_WIDTH)
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.city}>
         <Text style={styles.cityName}>Seoul</Text>
       </View>
-      <View style={styles.weather}>
+      <ScrollView
+        pagingEnabled
+        horizontal
+        //indicatorStyle='white'
+        showsHorizontalScrollIndicator={false}
+        contentContainerstyle={styles.weather}>
         <View style={styles.day}>
           <Text style={styles.temp}>27</Text>
           <Text style={styles.description}>sunny</Text>
         </View>
-      </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>sunny</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.temp}>27</Text>
+          <Text style={styles.description}>sunny</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -23,26 +43,27 @@ const styles = StyleSheet.create({
   },
   city: {
     flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "tomato",
     justifyContent: "center",
     alignItems:"center",
   },
   cityName: {
     fontSize: 68,
-    fontWeight:"500",
+    fontWeight:"00",
   },
   weather: {
-    flex: 3,
+    backgroundColor:"tomato"
   },
   day: {
-    flex: 1,
+    width:SCREEN_WIDTH,
     // justifyContent: "center",
     alignItems:"center",
-    backgroundColor:"blue",
+    backgroundColor:"tomato",
   },
   temp: {
-    marginTop:50,
-    fontSize:158,
+    marginTop: 50,
+    fontWeight: "600",
+    fontSize: 178,
   },
   description: {
     fontSize: 60,
